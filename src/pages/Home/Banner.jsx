@@ -22,18 +22,18 @@ const Banner = () => {
     <div className="">
       <div className="header ">
         <Parallax
-          className="w-full h-[calc(100vh-5rem)]  parallax-bg-image parallax-outer parallax"
+          className="parallax"
           renderLayer={(percentage) => (
             <div
               style={{
                 position: "absolute",
-                background: `rgba(100, 100, 100, ${percentage * 1})`,
+                background: `rgba(0, 0, 0,${percentage * 0.7})`,
                 left: "50%",
                 top: "50%",
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <div className="my-5 items-center mx-5 md:mx-10 xl:mx-20 xl:my-10 flex flex-col gap-5 text-violet-50 ">
+              <div className="my-5 items-center mx-5 md:mx-10 xl:mx-20 xl:my-10 flex flex-col gap-5 text-violet-50 overflow-hidden">
                 <h1
                   data-aos="fade-down"
                   data-aos-duration="1500"

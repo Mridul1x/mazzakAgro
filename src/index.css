@@ -467,7 +467,7 @@ html {
 
 .parallax {
   /* The image used */
-  background-image: url("https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg");
+  background-image: url("https://res.cloudinary.com/dfilp24nj/image/upload/f_auto,q_auto/v1/mazzakAgro/j24tdsjnvnyhfg4qtvif");
 
   /* Set a specific height */
   /* Full height */
@@ -486,6 +486,26 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .parallax {
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 15rem);
+  }
+}
+
+.parallax1 {
+  /* The image used */
+  background-image: url("https://res.cloudinary.com/dfilp24nj/image/upload/f_auto,q_auto/v1/mazzakAgro/bn4hs4t6n0nu0eyjx50a");
+
+  /* Set a specific height */
+  /* Full height */
+  height: 70vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media only screen and (max-device-width: 1366px) {
+  .parallax1 {
+    background-attachment: scroll !important;
   }
 }
