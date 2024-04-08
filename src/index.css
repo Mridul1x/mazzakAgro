@@ -460,3 +460,32 @@
 .blog-title {
   background-image: url("https://images.pexels.com/photos/5792901/pexels-photo-5792901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 }
+body,
+html {
+  height: 100%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg");
+
+  /* Set a specific height */
+  /* Full height */
+  height: calc(100vh - 5rem);
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .parallax {
+    height: calc(100vh - 10rem);
+  }
+}

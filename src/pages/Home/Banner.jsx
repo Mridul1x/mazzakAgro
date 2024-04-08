@@ -22,9 +22,7 @@ const Banner = () => {
     <div className="">
       <div className="header ">
         <Parallax
-          className="w-full h-[calc(100vh-5rem)]  parallax-bg-image parallax-outer"
-          bgImage="https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg"
-          bgClassName=""
+          className="w-full h-[calc(100vh-5rem)]  parallax-bg-image parallax-outer parallax"
           renderLayer={(percentage) => (
             <div
               style={{
