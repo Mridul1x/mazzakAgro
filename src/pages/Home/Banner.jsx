@@ -1,0 +1,67 @@
+import Aos from "aos";
+import React, { useEffect, useState } from "react";
+import { Parallax } from "react-parallax";
+import { Link } from "react-router-dom";
+
+const Banner = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    Aos.init();
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <div className="">
+      <div className="header ">
+        <Parallax
+          className="w-full h-[calc(100vh-5rem)]  parallax-bg-image parallax-outer"
+          bgImage="https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg"
+          bgClassName=""
+          renderLayer={(percentage) => (
+            <div
+              style={{
+                position: "absolute",
+                background: `rgba(100, 100, 100, ${percentage * 1})`,
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div className="my-5 items-center mx-5 md:mx-10 xl:mx-20 xl:my-10 flex flex-col gap-5 text-violet-50 ">
+                <h1
+                  data-aos="fade-down"
+                  data-aos-duration="1500"
+                  className="text-xl md:text-2xl lg:text-2xl font-semibold uppercase space-font z-10"
+                >
+                  Mazzak Agro
+                </h1>
+                <Link
+                  data-aos="fade-left"
+                  data-aos-duration="1500"
+                  data-aos-delay="1000"
+                  to="/"
+                  className="cta-btn border-[1px] uppercase h-12 w-64 md:h-14 md:w-52 duration-300 font-medium"
+                >
+                  <span className="absolute z-30 w-full text-center top-[30%] text-sm md:text-base">
+                    BROWSE OUR SHOP !
+                  </span>
+                </Link>
+              </div>
+            </div>
+          )}
+          strength={600}
+        ></Parallax>
+      </div>
+    </div>
+  );
+};
+
+export default Banner;

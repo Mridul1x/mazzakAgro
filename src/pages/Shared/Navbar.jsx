@@ -19,7 +19,7 @@ const Navbar = () => {
   }, [toggleOpen]);
 
   return (
-    <header className="w-full h-20 flex items-center justify-between text-white fixed z-50 top-0 left-0 bg-black px-5">
+    <header className="w-full h-20 flex items-center justify-between text-white bg-black px-5">
       <div className="logo">
         <Link href="/" className="text-2xl font-semibold logo">
           Mazzak Agro.
