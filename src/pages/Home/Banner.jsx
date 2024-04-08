@@ -36,14 +36,14 @@ const Banner = () => {
               <div className="my-5 items-center mx-5 md:mx-10 xl:mx-20 xl:my-10 flex flex-col gap-5 text-violet-50 overflow-hidden">
                 <h1
                   data-aos="fade-down"
-                  data-aos-duration="1500"
+                  data-aos-duration="1200"
                   className="text-xl md:text-2xl lg:text-2xl font-semibold uppercase space-font z-10"
                 >
                   Mazzak Agro
                 </h1>
                 <Link
                   data-aos="fade-left"
-                  data-aos-duration="1500"
+                  data-aos-duration="1200"
                   data-aos-delay="1000"
                   to="/"
                   className="cta-btn border-[1px] uppercase h-12 w-64 md:h-14 md:w-52 duration-300 font-medium"
