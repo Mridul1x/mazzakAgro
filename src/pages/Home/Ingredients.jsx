@@ -17,7 +17,7 @@ const Ingredients = () => {
       if (screenWidth >= minWidthForEffect) {
         const scrollPercentage =
           window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        const colorValue = Math.max(0, 255 - scrollPercentage * 255);
+        const colorValue = Math.max(0, 150 - scrollPercentage * 255);
         document.getElementById(
           "dynamic-bg"
         ).style.backgroundColor = `rgb(${colorValue},${colorValue},${colorValue})`;

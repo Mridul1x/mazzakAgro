@@ -1,7 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
@@ -85,18 +84,11 @@ const Contact = () => {
 
   return (
     <main>
-      <div className="wrapper min-h-screen mt-40 mb-20">
+      <div className="wrapper min-h-screen mt-28 lg:mt-40 mb-20">
         <h2 className="section-title">Contact Us</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden mt-10">
-          <motion.form
-            onSubmit={sendEmail}
-            className="flex flex-col  "
-            ref={formRef}
-            initial={{ x: "-100%" }}
-            whileInView={{ x: 0 }}
-            transition={{ ease: "easeInOut", duration: 1 }}
-          >
+          <form onSubmit={sendEmail} className="flex flex-col  ">
             <div className="gap-3">
               <div className="mb-4">
                 <label className="block text-gray-700 uppercase">
@@ -152,14 +144,9 @@ const Contact = () => {
               type="submit"
               value="Submit"
             />
-          </motion.form>
+          </form>
 
-          <motion.div
-            initial={{ x: "100%" }}
-            whileInView={{ x: 0 }}
-            transition={{ ease: "easeInOut", duration: 1 }}
-            className="right flex flex-col gap-5 w-full h-[30rem] overflow-hidden "
-          >
+          <div className="right flex flex-col gap-5 w-full h-[30rem] overflow-hidden ">
             <div>
               <p className="font-bold uppercase text-lg">Address:</p>
               <p>
@@ -195,7 +182,7 @@ const Contact = () => {
               <p>Mon-Sat: 10:00am - 8:00pm</p>
               <p>Sun: 11:00am - 9:00pm</p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </main>
