@@ -1,94 +1,57 @@
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { toast } from "react-toastify";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
-  const [allFieldsFilled, setAllFieldsFilled] = useState(false);
-  const [isVerified, setIsVerified] = useState(false);
-
-  const checkFieldsFilled = () => {
-    const nameInput = document.querySelector(".name").value;
-    const emailInput = document.querySelector(".email").value;
-    const messageInput = document.querySelector(".message").value;
-
-    const areFieldsFilled = nameInput && emailInput && messageInput;
-
-    // Update the allFieldsFilled state based on whether all fields are filled
-    setAllFieldsFilled(areFieldsFilled);
-  };
-
-  const onChange = (value) => {
-    console.log("Captcha value:", value);
-    setIsVerified(true);
-  };
-
   const formRef = useRef(null);
-  const siteKey = import.meta.env.VITE_SITE_KEY;
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (isVerified) {
-      const serviceID = import.meta.env.VITE_PUBLIC_SERVICE_ID;
-      const appTemplateId = import.meta.env.VITE_PUBLIC_TEMPLATE_ID;
-      const appPublicId = import.meta.env.VITE_PUBLIC_USER_ID;
+    const serviceID = import.meta.env.VITE_PUBLIC_SERVICE_ID;
+    const appTemplateId = import.meta.env.VITE_PUBLIC_TEMPLATE_ID;
+    const appPublicId = import.meta.env.VITE_PUBLIC_USER_ID;
 
-      emailjs
-        .sendForm(serviceID, appTemplateId, formRef.current, appPublicId)
-        .then(
-          () => {
-            toast.success("Message Sent!", {
-              position: "bottom-center",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-            });
-          },
-          () => {
-            toast.error("Something went wrong!", {
-              position: "bottom-center",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-            });
-          }
-        );
-
-      // Reset form fields
-      e.target.querySelector(".name").value = "";
-      e.target.querySelector(".email").value = "";
-      e.target.querySelector(".message").value = "";
-    } else {
-      // Show an error message or take appropriate action when reCAPTCHA is not verified
-      toast.error("Please verify the reCAPTCHA before sending the message.", {
-        position: "bottom-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
+    emailjs
+      .sendForm(serviceID, appTemplateId, formRef.current, appPublicId)
+      .then(
+        () => {
+          toast.success("Message Sent!", {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        },
+        () => {
+          toast.error("Something went wrong!", {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      );
+    //reset
+    e.target.querySelector(".name").value = "";
+    e.target.querySelector(".email").value = "";
+    e.target.querySelector(".message").value = "";
   };
-
   return (
     <main>
       <div className="wrapper min-h-screen mt-28 lg:mt-40 mb-20">
         <h2 className="section-title">Contact Us</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden mt-10">
-          <form onSubmit={sendEmail} className="flex flex-col  ">
+          <form onSubmit={sendEmail} ref={formRef} className="flex flex-col">
             <div className="gap-3">
               <div className="mb-4">
                 <label className="block text-gray-700 uppercase">
@@ -97,7 +60,6 @@ const Contact = () => {
                     type="text"
                     name="from_name"
                     placeholder="Write your name"
-                    onChange={checkFieldsFilled}
                     required
                     className="name mt-2 appearance-none w-full p-4 outline-none text-gray-700  border border-gray-300 focus:border-gray-600 duration-300"
                   />
@@ -111,7 +73,6 @@ const Contact = () => {
                     type="email"
                     name="from_email"
                     placeholder="Write your email"
-                    onChange={checkFieldsFilled}
                     required
                     className="email appearance-none mt-2 w-full p-4 outline-none text-gray-700  border border-gray-300 focus:border-gray-600 duration-300"
                   />
@@ -124,20 +85,11 @@ const Contact = () => {
                 <textarea
                   name="message"
                   placeholder="Write your message"
-                  onChange={checkFieldsFilled}
                   required
                   className="message appearance-none mt-2 w-full p-4 outline-none text-gray-700  border border-gray-300 focus:border-gray-600 duration-300 resize-none h-40"
                 />
               </label>
             </div>
-            {allFieldsFilled && !isVerified && (
-              <ReCAPTCHA
-                className="mb-4"
-                sitekey={siteKey}
-                onChange={onChange}
-              />
-            )}
-
             <input
               required
               className="bg-black hover:opacity-80 text-white py-5 px-10 uppercase duration-300 cursor-pointer"
@@ -150,9 +102,7 @@ const Contact = () => {
             <div>
               <p className="font-bold uppercase text-lg">Address:</p>
               <p>
-                Chakshal, Ollartech, Batpara; P/O: Deputibari ; P/S NArshindhi
-                Sadar,Narsingdhi (near the Monir Chairman house Goli ),
-                Narsingdi, Bangladesh, 1603
+                52, New Eskaton Road, TMC Bhaban, 6th Floor, Dhaka, Bangladesh.
               </p>
             </div>
             <div>

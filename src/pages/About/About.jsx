@@ -68,10 +68,7 @@ const About = () => {
             <img
               data-aos="fade-right"
               data-aos-duration="1000"
-              priority
-              unoptimized
               src={img1}
-              loader={() => img1}
               alt={"image"}
               height={50}
               width={50}
@@ -82,10 +79,7 @@ const About = () => {
             <img
               data-aos="fade-up"
               data-aos-duration="1000"
-              priority
-              unoptimized
               src={img2}
-              loader={() => img2}
               alt={"image"}
               height={50}
               width={50}
@@ -96,10 +90,7 @@ const About = () => {
             <img
               data-aos="fade-down"
               data-aos-duration="1000"
-              priority
-              unoptimized
               src={img3}
-              loader={() => img3}
               alt={"image"}
               height={50}
               width={50}
@@ -110,10 +101,7 @@ const About = () => {
             <img
               data-aos="fade-up"
               data-aos-duration="1000"
-              priority
-              unoptimized
               src={img4}
-              loader={() => img4}
               alt={"image"}
               height={50}
               width={50}
@@ -124,10 +112,7 @@ const About = () => {
             <img
               data-aos="fade-left"
               data-aos-duration="1000"
-              priority
-              unoptimized
               src={img5}
-              loader={() => img5}
               alt={"image"}
               height={50}
               width={50}
