@@ -24,7 +24,7 @@ const Delivered = () => {
             to="/"
             className="mt-5 inline-block bg-transparent border  border-black text-black py-2 px-4 hover:bg-rose-900  transition-colors duration-300 font-serif "
           >
-            Learn More
+            SHOP NOW
           </Link>
         </div>
       </div>

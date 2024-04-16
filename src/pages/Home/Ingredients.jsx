@@ -30,7 +30,11 @@ const Ingredients = () => {
   }, []);
   return (
     <div className="relative w-full h-[55vh] lg:h-[70vh] flex flex-col md:flex-row overflow-hidden">
-      <Parallax strength={500} className="w-full md:w-2/3  md:h-full parallax1">
+      <Parallax
+        blur={{ min: 0, max: 50 }}
+        strength={500}
+        className="w-full md:w-2/3  md:h-full parallax1"
+      >
         {/* Empty content for the parallax image */}
       </Parallax>
       <div

@@ -22,6 +22,7 @@ const Banner = () => {
     <div className="">
       <div className="header ">
         <Parallax
+          c
           className="parallax"
           renderLayer={(percentage) => (
             <div

@@ -22,7 +22,7 @@ const Navbar = () => {
     <header className="w-full h-20 flex items-center justify-between text-white bg-black px-5">
       <div className="logo">
         <Link href="/" className="text-2xl font-semibold logo">
-          Mazzak Agro.
+          Mazzak Nuts.
         </Link>
       </div>
       <nav onClick={handleToggle} className="nav-links">
@@ -59,7 +59,7 @@ const Navbar = () => {
             </li>
           )} */}
           <li>
-            <Link href="/about" className="linear-walkaways">
+            <Link to="/about" className="linear-walkaways">
               About
             </Link>
           </li>

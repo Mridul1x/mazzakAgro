@@ -22,10 +22,10 @@ const Footer = () => {
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="0"
-            href="/"
+            to="/"
             className="text-4xl md:text-2xl font-semibold text-rose-500 hover:text-white duration-300"
           >
-            Mazzak Agro.
+            Mazzak Nuts.
           </Link>
         </div>
         <div
@@ -67,27 +67,27 @@ const Footer = () => {
           </p>
           <div className="nav-link flex flex-col-2 mt-3 gap-10 justify-start">
             <div className="link-col-left flex flex-col text-left gap-1 uppercase">
-              <Link href="/" className="footer-nav-links">
+              <Link to="/" className="footer-nav-links">
                 Home
               </Link>
-              <Link href="/products" className="footer-nav-links">
+              <Link to="/products" className="footer-nav-links">
                 Shop
               </Link>
-              {/* <Link href="/products/men" className="footer-nav-links">
+              {/* <Link to="/products/men" className="footer-nav-links">
                 Men
               </Link>
-              <Link href="/products/women" className="footer-nav-links">
+              <Link to="/products/women" className="footer-nav-links">
                 Women
               </Link> */}
             </div>
             <div className="link-col-right flex flex-col text-left gap-1 uppercase">
-              {/* <Link href="/inventory" className="footer-nav-links">
+              {/* <Link to="/inventory" className="footer-nav-links">
                 Inventory
               </Link> */}
-              <Link href="/about" className="footer-nav-links">
+              <Link to="/about" className="footer-nav-links">
                 About
               </Link>
-              <Link href="/contact" className="footer-nav-links">
+              <Link to="/contact" className="footer-nav-links">
                 Contact
               </Link>
             </div>
