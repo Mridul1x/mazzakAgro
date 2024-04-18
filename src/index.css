@@ -89,7 +89,7 @@
 }
 
 .overlay {
-  @apply absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 duration-500 bg-gray-800 z-10 ease-in-out;
+  @apply absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 duration-500 bg-gray-800 z-20 ease-in-out;
 }
 
 .sq-men:hover .overlay,

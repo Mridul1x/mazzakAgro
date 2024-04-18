@@ -1,6 +1,13 @@
+import React from "react";
+
 const Overlay = () => {
   return (
-    <div className="absolute z-[1] top-0 left-0 w-full h-full bg-gradient-to-t from-black/75 to-transparent"></div>
+    <div className="min-h-screen inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+      <div className="flex flex-col items-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-white mb-4"></div>
+        <p className="text-white text-lg font-semibold">Loading...</p>
+      </div>
+    </div>
   );
 };
 

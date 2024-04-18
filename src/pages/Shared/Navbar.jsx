@@ -1,11 +1,13 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { BsBag } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import NavbarOverlay from "../../component/NavbarOverlay";
 
 const Navbar = () => {
-  //   const { data: session } = useSession();
+  const { user, loading } = useContext(AuthContext);
 
   const [toggleOpen, setToggleOpen] = useState(false);
 
@@ -32,12 +34,12 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <Link href="/" className="linear-walkaways">
+            <Link to="/" className="linear-walkaways">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/products" className="linear-walkaways">
+            <Link to="/products" className="linear-walkaways">
               Shop
             </Link>
           </li>
@@ -72,18 +74,17 @@ const Navbar = () => {
       </nav>
 
       <div className="nav-links-right flex gap-5">
-        {/* {!session ? (
-          <Link href="/user/login" className="uppercase linear-walkaways">
+        {loading ? (
+          <NavbarOverlay />
+        ) : !user ? (
+          <Link to="/login" className="uppercase linear-walkaways">
             Sign in
           </Link>
         ) : (
-          <Link href="/user/profile" className="uppercase linear-walkaways">
+          <Link to="/profile" className="uppercase linear-walkaways">
             Profile
           </Link>
-        )} */}
-        <Link href="/user/login" className="uppercase linear-walkaways">
-          Sign in
-        </Link>
+        )}
 
         <Link href="/cart" className="relative">
           <span>

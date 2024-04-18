@@ -1,29 +1,19 @@
 import Aos from "aos";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Parallax } from "react-parallax";
 import { Link } from "react-router-dom";
+import Overlay from "../../component/Overlay";
 
 const Banner = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
   useEffect(() => {
     Aos.init();
-
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <div className="">
       <div className="header ">
         <Parallax
-          c
-          className="parallax"
+          className="parallax "
           renderLayer={(percentage) => (
             <div
               style={{
@@ -40,7 +30,7 @@ const Banner = () => {
                   data-aos-duration="1200"
                   className="text-xl md:text-2xl lg:text-2xl font-semibold uppercase space-font z-10"
                 >
-                  Mazzak Agro
+                  Mazzak Nuts
                 </h1>
                 <Link
                   data-aos="fade-left"
