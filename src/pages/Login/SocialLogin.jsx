@@ -14,7 +14,7 @@ const SocialLogin = () => {
         name: user.displayName,
         email: user.email,
       };
-      fetch("http://localhost:8080/api/users", {
+      fetch("https://mazzak-server.vercel.app/api/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

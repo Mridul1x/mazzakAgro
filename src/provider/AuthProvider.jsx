@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
       // get and set token
       if (currentUser) {
         axios
-          .post("http://localhost:8080/jwt", {
+          .post("https://mazzak-server.vercel.app/jwt", {
             email: currentUser.email,
           })
           .then((data) => {
