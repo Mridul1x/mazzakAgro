@@ -55,16 +55,8 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       // get and set token
       if (currentUser) {
-        axios
-          .post("https://mazzak-server.vercel.app/jwt", {
-            email: currentUser.email,
-          })
-          .then((data) => {
-            localStorage.setItem("access-token", data.data.token);
-            setLoading(false);
-          });
+        setLoading(false);
       } else {
-        localStorage.removeItem("access-token");
         setLoading(false);
       }
     });

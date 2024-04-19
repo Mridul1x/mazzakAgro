@@ -69,22 +69,35 @@
 }
 
 /* CATEGORIES */
-.sq-men {
-  background-image: url(https://res.cloudinary.com/dd68fmrvx/image/upload/v1685102558/e-commerce/mens-fashion_k5elcy.jpg);
+.sq-nuts,
+.sq-seeds,
+.sq-berries,
+.sq-dates {
   background-repeat: no-repeat;
   background-size: cover;
-  @apply flex-1 aspect-square flex items-center justify-center relative;
+  @apply aspect-square flex items-center justify-center relative;
 }
 
-.sq-women {
-  background-image: url(https://res.cloudinary.com/dd68fmrvx/image/upload/v1685102560/e-commerce/pexels-chloe-1004642_yrvbem.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  @apply flex-1 aspect-square flex items-center justify-center relative;
+.sq-nuts {
+  background-image: url(https://res.cloudinary.com/dfilp24nj/image/upload/f_auto,q_auto/v1/mazzakAgro/we64sz5wvz97zmnb0ngn);
 }
 
-.category-title-men,
-.category-title-women {
+.sq-seeds {
+  background-image: url(https://images.pexels.com/photos/41959/food-grains-bread-wheat-cereals-41959.jpeg?auto=compress&cs=tinysrgb&w=600);
+}
+
+.sq-berries {
+  background-image: url(https://images.pexels.com/photos/87818/background-berries-berry-blackberries-87818.jpeg?auto=compress&cs=tinysrgb&w=600);
+}
+
+.sq-dates {
+  background-image: url(https://images.pexels.com/photos/8758401/pexels-photo-8758401.jpeg?auto=compress&cs=tinysrgb&w=600);
+}
+
+.category-title-nuts,
+.category-title-seeds,
+.category-title-berries,
+.category-title-dates {
   @apply text-6xl text-gray-100 font-medium uppercase z-20 hidden duration-500 ease-in-out;
 }
 
@@ -92,13 +105,17 @@
   @apply absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 duration-500 bg-gray-800 z-20 ease-in-out;
 }
 
-.sq-men:hover .overlay,
-.sq-women:hover .overlay {
+.sq-nuts:hover .overlay,
+.sq-seeds:hover .overlay,
+.sq-berries:hover .overlay,
+.sq-dates:hover .overlay {
   opacity: 0.85;
 }
 
-.sq-men:hover .category-title-men,
-.sq-women:hover .category-title-women {
+.sq-nuts:hover .category-title-nuts,
+.sq-seeds:hover .category-title-seeds,
+.sq-berries:hover .category-title-berries,
+.sq-dates:hover .category-title-dates {
   @apply block;
 }
 
