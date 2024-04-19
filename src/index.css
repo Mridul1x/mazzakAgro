@@ -612,3 +612,16 @@ html {
   clip-path: circle(100%);
   transition: all 2s;
 }
+.dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 1024px) {
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: none;
+  }
+}

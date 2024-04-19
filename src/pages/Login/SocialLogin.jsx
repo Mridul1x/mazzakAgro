@@ -31,8 +31,18 @@ const SocialLogin = () => {
   };
   return (
     <div className="min-h-screen my-20 flex flex-col gap-5 items-center">
-      <h2 className="section-title">You are not signed in.</h2>
+      <h2
+        data-aos="fade-up"
+        data-aos-delay="100"
+        data-aos-duration="1000"
+        className="section-title"
+      >
+        You are not signed in.
+      </h2>
       <button
+        data-aos="fade-up"
+        data-aos-delay="200"
+        data-aos-duration="1000"
         onClick={handleGoogleSignIn}
         className="bg-gray-900 text-white h-12 w-72 hover:opacity-80 duration-300 flex items-center justify-center gap-2 font-medium uppercase"
       >

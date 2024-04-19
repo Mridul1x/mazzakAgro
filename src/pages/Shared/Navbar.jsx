@@ -1,15 +1,17 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useState, useRef, useEffect } from "react";
 import { BsBag } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import NavbarOverlay from "../../component/NavbarOverlay";
+import DropdownMenu from "../../component/DropDownMenu";
 
 const Navbar = () => {
   const { user, loading } = useContext(AuthContext);
-
   const [toggleOpen, setToggleOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const shopLinkRef = useRef(null);
 
   const handleToggle = useCallback(() => {
     if (window.innerWidth > 1023) {
@@ -20,14 +22,49 @@ const Navbar = () => {
     document.body.classList.toggle("lock-scroll");
   }, [toggleOpen]);
 
+  const toggleDropdown = useCallback((event) => {
+    if (window.innerWidth >= 1024) {
+      setDropdownOpen((prevState) => !prevState);
+    } else {
+      setDropdownOpen((prevState) => !prevState);
+      setToggleOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleMouseEnter = () => {
+      if (window.innerWidth >= 1024) {
+        setDropdownOpen(true);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (window.innerWidth >= 1024) {
+        setDropdownOpen(false);
+      }
+    };
+
+    const shopLink = shopLinkRef.current;
+    shopLink.addEventListener("mouseenter", handleMouseEnter);
+    shopLink.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      shopLink.removeEventListener("mouseenter", handleMouseEnter);
+      shopLink.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   return (
-    <header className="w-full h-20 flex items-center justify-between text-white bg-black px-5">
+    <header className="w-full h-20 flex items-center justify-between text-white bg-black px-5 relative">
       <div className="logo">
-        <Link href="/" className="text-2xl font-semibold logo">
+        <Link to="/" className="text-2xl font-semibold logo">
           Mazzak Nuts.
         </Link>
       </div>
-      <nav onClick={handleToggle} className="nav-links">
+      <nav
+        onClick={handleToggle}
+        className={`nav-links ${dropdownOpen ? "lg:relative" : ""}`}
+      >
         <ul
           className={`${
             toggleOpen ? "flexColMod" : "hidden lg:flex gap-5 uppercase"
@@ -38,28 +75,45 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Link to="/products" className="linear-walkaways">
-              Shop
-            </Link>
+          <li className="relative" ref={shopLinkRef}>
+            <div className="flex items-center gap-2 cursor-pointer">
+              <Link to="/products" className="linear-walkaways">
+                Shop
+              </Link>
+              <span className="lg:hidden">
+                {dropdownOpen ? (
+                  <AiOutlineMinus
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleDropdown();
+                    }}
+                    className="text-xl"
+                  />
+                ) : (
+                  <AiOutlinePlus
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleDropdown();
+                    }}
+                    className="text-xl"
+                  />
+                )}
+              </span>
+            </div>
+            <div className="lg:absolute lg:top-full lg:left-0 lg:z-10">
+              <DropdownMenu
+                isOpen={dropdownOpen}
+                toggleDropdown={toggleDropdown}
+              />
+            </div>
           </li>
-          {/* <li>
-            <Link href="/products/men" className="linear-walkaways">
-              Men
-            </Link>
-          </li>
-          <li>
-            <Link href="/products/women" className="linear-walkaways">
-              Women
-            </Link>
-          </li> */}
-          {/* {session && (
+          {user && (
             <li>
               <Link href="/orders" className="linear-walkaways">
                 Orders
               </Link>
             </li>
-          )} */}
+          )}
           <li>
             <Link to="/about" className="linear-walkaways">
               About
