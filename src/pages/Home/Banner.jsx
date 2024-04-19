@@ -36,7 +36,7 @@ const Banner = () => {
                   data-aos="fade-left"
                   data-aos-duration="1200"
                   data-aos-delay="1000"
-                  to="/"
+                  to="/products"
                   className="cta-btn border-[1px] uppercase h-12 w-64 md:h-14 md:w-52 duration-300 font-medium"
                 >
                   <span className="absolute z-30 w-full text-center top-[30%] text-sm md:text-base">

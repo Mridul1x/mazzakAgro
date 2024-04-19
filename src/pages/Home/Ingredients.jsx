@@ -60,7 +60,7 @@ const Ingredients = () => {
           <Link
             data-aos="fade-right"
             data-aos-duration="1000"
-            to="/"
+            to="/about"
             className="mt-5 inline-block bg-transparent border border-white text-white py-2 px-4 hover:bg-rose-900  transition-colors duration-300 font-serif"
           >
             Learn More

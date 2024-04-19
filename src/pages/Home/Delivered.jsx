@@ -21,7 +21,7 @@ const Delivered = () => {
           <Link
             data-aos="fade-right"
             data-aos-duration="1000"
-            to="/"
+            to="/products"
             className="mt-5 inline-block bg-transparent border  border-black text-black py-2 px-4 hover:bg-rose-900  transition-colors duration-300 font-serif "
           >
             SHOP NOW
