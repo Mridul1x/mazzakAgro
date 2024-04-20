@@ -5,8 +5,6 @@ const ProductItem = ({ product }) => {
   return (
     <div className="flex flex-col gap-3 w-full md:w-[20rem] border-b pb-3">
       <img
-        unoptimized
-        loader={() => product.imageUrl}
         src={product.imageUrl}
         width={500}
         height={500}
@@ -27,7 +25,7 @@ const ProductItem = ({ product }) => {
           {formatCurrency(product.price)}
         </p>
         <Link
-          to={`/products/${product.id}`}
+          to={`/products/${product._id}`}
           className="uppercase linear-walkaways"
         >
           Buy now

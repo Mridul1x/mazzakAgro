@@ -4,8 +4,6 @@ const ProductCard = ({ product }) => {
   return (
     <div className="flex flex-col  pb-3 ">
       <img
-        unoptimized
-        loader={() => product.imageUrl}
         src={product.imageUrl}
         alt={product.title}
         className=" object-cover w-[30rem] h-[30rem]"
