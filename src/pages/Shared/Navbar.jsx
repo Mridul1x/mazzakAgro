@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import NavbarOverlay from "../../component/NavbarOverlay";
 import DropdownMenu from "../../component/DropDownMenu";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { user, loading } = useContext(AuthContext);
   const [toggleOpen, setToggleOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const shopLinkRef = useRef(null);
-
+  const products = useSelector((state) => state.myShop.products);
   const handleToggle = useCallback(() => {
     if (window.innerWidth > 1023) {
       return;
@@ -140,11 +141,11 @@ const Navbar = () => {
           </Link>
         )}
 
-        <Link href="/cart" className="relative">
+        <Link to="/cart" className="relative">
           <span>
             <BsBag />
           </span>
-          <span className="counting-bubble">2</span>
+          <span className="counting-bubble">{products.length}</span>
         </Link>
 
         <span className="z-[3]">

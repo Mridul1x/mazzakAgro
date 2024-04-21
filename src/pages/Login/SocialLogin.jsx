@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { axiosPost } from "../../lib/axiosPost";
 import toast from "react-hot-toast";
 
 const SocialLogin = () => {
   const { googleAuth } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
@@ -20,7 +21,8 @@ const SocialLogin = () => {
         .then((data) => {
           // Handle the response
           console.log(data);
-          navigate("/profile");
+          const from = location.state?.from?.pathname || "/profile";
+          navigate(from, { replace: true });
           toast.success("Successfully logged in.");
         })
         .catch((error) => {

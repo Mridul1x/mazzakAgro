@@ -55,7 +55,7 @@
 }
 
 .section-title {
-  @apply text-3xl lg:text-5xl uppercase font-semibold;
+  @apply text-3xl lg:text-4xl uppercase font-semibold;
 }
 
 /* MOBILE NAV */
@@ -542,6 +542,29 @@ html {
 }
 @media only screen and (max-width: 1366px) {
   .parallax2 {
+    background-attachment: scroll; /* Disable fixed background on smaller screens */
+    height: 52vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.parallax3 {
+  /* The image used */
+  background-image: url("https://res.cloudinary.com/dfilp24nj/image/upload/f_auto,q_auto/v1/mazzakAgro/u2gtcw4asmfmunwdu5bg");
+
+  /* Set a specific height */
+  /* Full height */
+  height: 70vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media only screen and (max-width: 1366px) {
+  .parallax3 {
     background-attachment: scroll; /* Disable fixed background on smaller screens */
     height: 52vh;
     background-position: center;

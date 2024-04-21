@@ -73,12 +73,12 @@ const Footer = () => {
               <Link to="/products" className="footer-nav-links">
                 Shop
               </Link>
-              {/* <Link to="/products/men" className="footer-nav-links">
-                Men
+              <Link to="/products/nuts" className="footer-nav-links">
+                Nuts
               </Link>
-              <Link to="/products/women" className="footer-nav-links">
-                Women
-              </Link> */}
+              <Link to="/products/berries" className="footer-nav-links">
+                Berries
+              </Link>
             </div>
             <div className="link-col-right flex flex-col text-left gap-1 uppercase">
               {/* <Link to="/inventory" className="footer-nav-links">

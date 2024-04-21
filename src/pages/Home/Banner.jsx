@@ -2,7 +2,7 @@ import Aos from "aos";
 import React, { useEffect } from "react";
 import { Parallax } from "react-parallax";
 import { Link } from "react-router-dom";
-import Overlay from "../../component/Overlay";
+
 
 const Banner = () => {
   useEffect(() => {

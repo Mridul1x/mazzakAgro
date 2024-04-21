@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Ingredients from "./Ingredients";
 import Delivered from "./Delivered";
 import LatestProducts from "./LatestProducts";
+import Info from "./Info";
 
 const Home = () => {
   return (
