@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { Parallax } from "react-parallax";
 import { Link } from "react-router-dom";
 
-
 const Banner = () => {
   useEffect(() => {
     Aos.init();
@@ -11,7 +10,7 @@ const Banner = () => {
 
   return (
     <div className="">
-      <div className="header ">
+      <div className="header">
         <Parallax
           className="parallax "
           renderLayer={(percentage) => (
@@ -30,7 +29,7 @@ const Banner = () => {
                   data-aos-duration="1200"
                   className="text-xl md:text-2xl lg:text-2xl font-semibold uppercase space-font z-10"
                 >
-                  Mazzak Nuts
+                  Mazzak Agro
                 </h1>
                 <Link
                   data-aos="fade-left"

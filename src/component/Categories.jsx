@@ -1,6 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Category = () => {
@@ -24,7 +25,7 @@ const Category = () => {
           </h3>
         </Link>
         <Link
-          href="products/Seeds"
+          to="/products/seeds"
           className="sq-seeds"
           data-aos="zoom-in"
           data-aos-duration="1500"
@@ -35,18 +36,18 @@ const Category = () => {
           </h3>
         </Link>
         <Link
-          href="products/berries"
+          to="/products/powder"
           className="sq-berries"
           data-aos="zoom-in"
           data-aos-duration="1500"
         >
           <div className="overlay"></div>
           <h3 className="category-title-berries">
-            <p>Berries</p>
+            <p>Powder</p>
           </h3>
         </Link>
         <Link
-          href="products/dates"
+          to="/products/dates"
           className="sq-dates"
           data-aos="zoom-in"
           data-aos-duration="1500"

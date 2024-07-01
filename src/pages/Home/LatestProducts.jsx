@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import ProductCard from "../../component/ProductCard";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../component/Loading";
 import Error from "../../component/Error";
+import { AuthContext } from "../../provider/AuthProvider";
 const LatestProducts = () => {
-  const { data: products, error, isLoading } = useFetch("/api/products");
+  const { user } = useContext(AuthContext);
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useFetch("/api/products", user?.token);
 
   return (
     <div className="wrapper my-8">

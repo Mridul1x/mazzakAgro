@@ -23,11 +23,11 @@ const DropdownMenu = ({ isOpen, toggleDropdown }) => {
         Seeds
       </Link>
       <Link
-        to="/products/berries"
+        to="/products/powder"
         className="block px-4 py-2 linear-walkaways"
         onClick={toggleDropdown}
       >
-        Berries
+        Powder
       </Link>
       <Link
         to="/products/dates"

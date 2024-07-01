@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useContext } from "react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,11 +9,14 @@ import Error from "../../component/Error";
 import useFetch from "../../hooks/useFetch";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/productSlice";
+import { AuthContext } from "../../provider/AuthProvider";
+import Overlay from "../../component/Overlay";
 
 const ProductDetails = () => {
   useEffect(() => {
     AOS.init();
   }, []);
+  const { user } = useContext(AuthContext);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -31,10 +34,10 @@ const ProductDetails = () => {
     data: product,
     error,
     isLoading,
-  } = useFetch(`/api/products/${productId}`);
+  } = useFetch(`/api/products/${productId}`, user?.token);
 
   if (isLoading) {
-    return <Loading isLoading={isLoading} />;
+    return <Overlay></Overlay>;
   }
 
   if (error) {
@@ -68,6 +71,10 @@ const ProductDetails = () => {
             data-aos-duration="1000"
           >
             {product.title}
+            {"  "}
+            <span className="uppercase text-xl font-medium tracking-widest">
+              (150gm)
+            </span>
           </h2>
           <div
             className="flex gap-10 items-center"

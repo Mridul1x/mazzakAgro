@@ -87,7 +87,7 @@
 }
 
 .sq-berries {
-  background-image: url(https://images.pexels.com/photos/87818/background-berries-berry-blackberries-87818.jpeg?auto=compress&cs=tinysrgb&w=600);
+  background-image: url(https://images.pexels.com/photos/6287581/pexels-photo-6287581.jpeg?auto=compress&cs=tinysrgb&w=600);
 }
 
 .sq-dates {
@@ -122,17 +122,17 @@
 /* FOOTER AREA */
 
 .icon-circle {
-  @apply h-10 w-10 bg-rose-700 rounded-full flex items-center duration-300 cursor-pointer;
+  @apply h-10 w-10 bg-[#8fc443] rounded-full flex items-center duration-300 cursor-pointer;
 }
 .icon-circle:hover {
-  @apply bg-rose-800;
+  @apply bg-[#8ec443bd];
 }
 
 .footer-nav-links {
   @apply duration-300;
 }
 .footer-nav-links:hover {
-  @apply text-rose-500 duration-300;
+  @apply text-[rgb(143,196,67)] duration-300;
 }
 
 .social-icons {
@@ -484,7 +484,7 @@ html {
 
 .parallax {
   /* The image used */
-  background-image: url("https://res.cloudinary.com/dfilp24nj/image/upload/f_auto,q_auto/v1/mazzakAgro/we64sz5wvz97zmnb0ngn");
+  background-image: url("https://res.cloudinary.com/dfilp24nj/image/upload/v1714166251/gmzx4lhwdvoooiswvmdf.jpg");
 
   /* Set a specific height */
   /* Full height */

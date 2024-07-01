@@ -3,17 +3,15 @@ import { BsBag } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
-import NavbarOverlay from "../../component/NavbarOverlay";
 import DropdownMenu from "../../component/DropDownMenu";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const { user, loading } = useContext(AuthContext);
+  const userStore = useSelector((state) => state.user?.user);
+  const products = useSelector((state) => state.myShop.products);
   const [toggleOpen, setToggleOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const shopLinkRef = useRef(null);
-  const products = useSelector((state) => state.myShop.products);
   const handleToggle = useCallback(() => {
     if (window.innerWidth > 1023) {
       return;
@@ -59,7 +57,7 @@ const Navbar = () => {
     <header className="w-full h-20 flex items-center justify-between text-white bg-black px-5 relative">
       <div className="logo">
         <Link to="/" className="text-2xl font-semibold logo">
-          Mazzak Nuts.
+          Mazzak Agro.
         </Link>
       </div>
       <nav
@@ -108,13 +106,21 @@ const Navbar = () => {
               />
             </div>
           </li>
-          {user && (
+          {userStore && userStore.role === "user" && (
             <li>
-              <Link href="/orders" className="linear-walkaways">
+              <Link to="/orders" className="linear-walkaways">
                 Orders
               </Link>
             </li>
           )}
+          {userStore && userStore.role === "admin" && (
+            <li>
+              <Link to="/dashboard" className="linear-walkaways">
+                Dashboard
+              </Link>
+            </li>
+          )}
+
           <li>
             <Link to="/about" className="linear-walkaways">
               About
@@ -129,9 +135,7 @@ const Navbar = () => {
       </nav>
 
       <div className="nav-links-right flex gap-5">
-        {loading ? (
-          <NavbarOverlay />
-        ) : !user ? (
+        {!userStore ? (
           <Link to="/login" className="uppercase linear-walkaways">
             Sign in
           </Link>
@@ -141,12 +145,14 @@ const Navbar = () => {
           </Link>
         )}
 
-        <Link to="/cart" className="relative">
-          <span>
-            <BsBag />
-          </span>
-          <span className="counting-bubble">{products.length}</span>
-        </Link>
+        {userStore && userStore.role !== "admin" && (
+          <Link to="/cart" className="relative">
+            <span>
+              <BsBag />
+            </span>
+            <span className="counting-bubble">{products.length}</span>
+          </Link>
+        )}
 
         <span className="z-[3]">
           <FiMenu

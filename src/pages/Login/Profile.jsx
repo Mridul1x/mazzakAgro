@@ -1,23 +1,32 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useRouteError } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { FiLogOut } from "react-icons/fi";
 import Overlay from "../../component/Overlay";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "../../store/userSlice";
 
 const Profile = () => {
-  const { user, logout, loading } = useContext(AuthContext);
-
+  const { logout, loading } = useContext(AuthContext);
+  const userStore = useSelector((state) => state.user?.user);
+  console.log(userStore);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     Aos.init();
-  }, []);
+    if (!userStore) {
+      navigate("/login");
+    }
+  }, [navigate, userStore]);
 
   const handleLogOut = () => {
     logout()
       .then(() => {
+        dispatch(signout());
         navigate("/login");
         toast.success("Successfully logged out.");
         // Navigate to the login page after successful logout
@@ -31,16 +40,16 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen my-20 flex flex-col gap-5 items-center">
-      {user && (
+      {userStore && (
         <>
           <img
             data-aos="fade-up"
             data-aos-delay="100"
             data-aos-duration="1000"
-            src={user.photoURL}
+            src={userStore.photoURL}
             width={500}
             height={500}
-            alt={user.displayName}
+            alt={userStore.photoURL}
             className="h-32 w-32 rounded-full border-2 border-gray-900"
           />
           <h2
@@ -49,7 +58,7 @@ const Profile = () => {
             data-aos-duration="1000"
             className="section-title text-center"
           >
-            Welcome, {user.displayName}!
+            Welcome, {userStore.name}!
           </h2>
           <button
             data-aos="fade-up"

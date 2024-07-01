@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProductItem from "../../component/ProductItem";
 import Loading from "../../component/Loading";
 import Error from "../../component/Error";
 import useFetch from "../../hooks/useFetch";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Nuts = ({ isAddedInHomepage }) => {
+  const { user } = useContext(AuthContext);
   const marginClass = `${isAddedInHomepage ? "mt-5" : "mt-20"}`;
-  const { data: products, error, isLoading } = useFetch("/api/products");
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useFetch("/api/products", user?.token);
 
   const filteredProducts = products?.filter(
     (product) => product.category === "Nuts"
@@ -18,7 +24,7 @@ const Nuts = ({ isAddedInHomepage }) => {
   }));
 
   return (
-    <div className={`${marginClass} overflow-x-hidden`}>
+    <main className={`${marginClass} overflow-x-hidden`}>
       <div className="wrapper mb-20 flex flex-col gap-10">
         <h2 className="section-title my-2 leading-relaxed">
           Browse all nuts- কাজুবাদাম রোস্টেড উইথ সল্ট -
@@ -32,7 +38,7 @@ const Nuts = ({ isAddedInHomepage }) => {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

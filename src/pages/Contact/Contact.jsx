@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -40,13 +41,25 @@ const Contact = () => {
           });
         }
       );
-    //reset
+    reset;
     e.target.querySelector(".name").value = "";
     e.target.querySelector(".email").value = "";
     e.target.querySelector(".message").value = "";
   };
   return (
     <main>
+      <Helmet>
+        <title>Contact Us - Mazzak Agro</title>
+        <meta
+          name="description"
+          content="Address: 52, New Eskaton Road, TMC Bhaban, 6th Floor, Dhaka, Bangladesh. Email: info@mazzakagro.com"
+        />
+        <meta
+          name="keywords"
+          content="Mazzak Agro, premium nuts, healthy snacks, contact us, New Eskaton Road, Dhaka, Bangladesh, contact, inquiries, feedback, assistance, nut products"
+        />
+        <link rel="canonical" href="https://www.mazzakagro.com/contact" />
+      </Helmet>
       <div className="wrapper min-h-screen mt-28 lg:mt-40 mb-20">
         <h2 className="section-title">Contact Us</h2>
 

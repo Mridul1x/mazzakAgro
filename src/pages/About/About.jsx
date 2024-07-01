@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const img4 =
   "https://res.cloudinary.com/dfilp24nj/image/upload/f_auto,q_auto/v1/mazzakAgro/v5j84y3uumd2qzqfbj4m";
@@ -16,18 +17,18 @@ const img2 =
 const About = () => {
   return (
     <main>
-      {/* <Helmet>
-        <title>About Us - Capital PowerTech</title>
+      <Helmet>
+        <title>About Us - Mazzak Agro</title>
         <meta
           name="description"
-          content="At Capital PowerTech, our dedication lies in providing exceptional sales and service for Diesel Generator and Marine Engine Spare Parts."
+          content="At Mazzak Agro, we believe that snacking should be an experience that tantalizes the taste buds and nourishes the soul."
         />
         <meta
           name="keywords"
-          content="Capital PowerTech, Best Engine, Mirpur, Dhaka ,Engine Parts, About Us"
+          content="Mazzak Agro, premium nuts, healthy snacks, about us"
         />
-        <link rel="canonical" href="https://www.capitalpowertech.com/about" />
-      </Helmet> */}
+        <link rel="canonical" href="https://www.mazzakagro.com/about" />
+      </Helmet>
       <section className="py-16 container mx-auto px-5 md:px-0">
         <div
           data-aos="fade-up"
@@ -43,7 +44,7 @@ const About = () => {
           className="space-y-4 border-b pb-5 mt-5"
         >
           <p className="text-xl ">
-            At Mazzak Nuts, we believe that snacking should be an experience
+            At Mazzak Agro, we believe that snacking should be an experience
             that tantalizes the taste buds and nourishes the soul. Our journey
             began with a simple yet profound love for nuts, seeds, and
             everything crunchy and delicious. What started as a humble family
@@ -127,10 +128,10 @@ const About = () => {
         >
           <h1 className="text-3xl sm:text-4xl lg:text-5xl w-4/6 font-semibold leading-tight  sm:leading-tight lg:leading-tight">
             Indulge in Nutty Delights: Discover the Irresistible Flavors of
-            Mazzak Nuts!
+            Mazzak Agro!
           </h1>
           <p className="text-xl">
-            At Mazzak Nuts, we invite you to embark on a culinary adventure
+            At Mazzak Agro, we invite you to embark on a culinary adventure
             where every bite is a celebration of flavor and quality. Our
             exquisite selection of premium nuts is carefully curated to delight
             your senses and satisfy your cravings. Indulge in the rich, buttery
@@ -147,7 +148,7 @@ const About = () => {
           className="my-16 space-y-4"
         >
           <h1 className="text-3xl sm:text-5xl lg:text-7xl w-4/6 font-semibold leading-tight  sm:leading-tight lg:leading-tight">
-            <span className="text-design-left relative">Mazzak Nuts</span> - 5
+            <span className="text-design-left relative">Mazzak Agro</span> - 5
             Things we value
           </h1>
           <p className="text-3xl font-semibold">

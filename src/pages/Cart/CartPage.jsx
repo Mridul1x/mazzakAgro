@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../../store/productSlice";
+import { clearCart, setSubtotal } from "../../store/productSlice";
 import { formatCurrency } from "../../utilities/formateCurrency";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CartItem from "../../component/CartItem";
 
 const CartPage = () => {
-  const { user } = useContext(AuthContext);
+  const userStore = useSelector((state) => state.user?.user);
 
   const products = useSelector((state) => state.myShop.products);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,12 +27,19 @@ const CartPage = () => {
   /* CHECKOUT SESSION */
   const createCheckoutSession = async () => {
     // If there is no session, user will redirect into login
-    if (!user) {
+    if (!userStore) {
       navigate(`/login?destination=${location.pathname}`, {
         state: { from: location },
       });
       return;
     }
+    const subtotal = total();
+
+    // Store the subtotal in the Redux store
+    dispatch(setSubtotal(subtotal));
+
+    // Navigate to the CheckoutPage
+    navigate("/checkout");
   };
 
   return (
@@ -108,7 +112,7 @@ const CartPage = () => {
                 role="link"
                 className="bg-cyan-500 w-full py-5 uppercase font-medium text-cyan-50 tracking-widest hover:bg-cyan-600 duration-300 text-center"
               >
-                {!user ? "Sign in to checkout" : "Proceed to checkout"}
+                {!userStore ? "Sign in to checkout" : "Proceed to checkout"}
               </button>
             </div>
           </div>

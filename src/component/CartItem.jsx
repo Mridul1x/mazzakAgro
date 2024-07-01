@@ -19,7 +19,8 @@ const CartItem = ({ product }) => {
           className="img w-24 h-24 object-cover"
         />
         <div className="details flex flex-col items-start gap-2">
-          <span>{product.title}</span>
+          <span>{product.title} (150gm)</span>
+
           <button
             onClick={() => dispatch(removeItem(product))}
             className="linear-walkaways uppercase text-gray-400"

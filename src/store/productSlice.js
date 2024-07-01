@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
+  subtotal: 0,
 };
 
 export const productSlice = createSlice({
@@ -28,8 +29,13 @@ export const productSlice = createSlice({
 
     clearCart: (state) => {
       state.products = [];
+      state.subtotal = 0;
+    },
+    setSubtotal: (state, action) => {
+      state.subtotal = action.payload;
     },
   },
 });
 
-export const { addToCart, removeItem, clearCart } = productSlice.actions;
+export const { addToCart, removeItem, clearCart, setSubtotal } =
+  productSlice.actions;
